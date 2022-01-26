@@ -15,6 +15,8 @@ class Creator extends React.Component {
   state = {
     value: '',
     visibleButtons: false,
+    cancelButton: 'cancel',
+    buttonVariant: 'danger'
   }
 
   handleChange = event => {
@@ -35,11 +37,9 @@ class Creator extends React.Component {
     }
   }
 
-  handleCancel = () => {
-    this.setState({
-      value: '',
-      visibleButtons: false
-    });
+  handleCancel = event => {
+    event.currentTarget.textContent == 'cancel' ? this.setState({cancelButton: 'confirm', buttonVariant: 'confirm'}) : this.setState({value: '',
+    visibleButtons: false, cancelButton: 'cancel', buttonVariant: 'danger'})
   }
 
   render() {
@@ -53,7 +53,7 @@ class Creator extends React.Component {
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
           <Button onClick={this.handleOK}>OK</Button>
-          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
+          <Button onClick={this.handleCancel} variant={this.state.buttonVariant}>{this.state.cancelButton}</Button>
         </div>
       </div>
     );

@@ -22,3 +22,8 @@
 .title + .subtitle {
   margin-top: (- $base-size * 3);
 }
+
+.invisibility {
+  display: none;  
+  border: 3px dotted white;
+}
