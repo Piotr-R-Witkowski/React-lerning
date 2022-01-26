@@ -6,10 +6,10 @@ const Card = props => (
   <div className={styles.component}>
     {props.title}
   </div>
-)
+);
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
 
 export default Card;

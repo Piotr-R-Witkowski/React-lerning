@@ -1,6 +1,5 @@
-import React from "react";
+import React from 'react';
 import styles from './Modal.scss';
-import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
@@ -15,7 +14,7 @@ class Modal extends React.Component {
           <button className={styles['js--close-modal']}>Okay</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
