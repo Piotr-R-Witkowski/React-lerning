@@ -1,18 +1,24 @@
 import React from 'react';
 import styles from './App.scss';
-import List from '../List/List.js';
-import {pageContents, listData, settings} from '../../data/dataStore.js';
-import Creator from '../Creator/Creator.js';
-import Hamburger from '../Hamburger/Hamburger.js';
+import List from '../List/ListContainer.js';
+//import Creator from '../Creator/Creator.js';
+//import Hamburger from '../Hamburger/Hamburger.js';
+import propTypes from 'prop-types';
 
 
 class App extends React.Component {
-  state = {
+  /*state = {
     lists: listData || [],
     hamburgerContent: 'zakryj',
     listVisibility: '',
+  };*/
+
+  static propTypes = {
+    title: propTypes.node,
+    subtitle: propTypes.node,
+    lists: propTypes.array,
   };
-  
+  /*
   addList(title) {
     this.setState(state => (
       {
@@ -39,32 +45,38 @@ class App extends React.Component {
       listVisibility: isVisible,
     });
   };
+  */
 
   render() {
-    console.log(this.state.hamburgerContent);
-    console.log('blavlalva');
+    const {title, subtitle, lists} = this. props;
     return ( 
       <main className={styles.component}>
-        <h1 className={styles.title}>{pageContents.title}</h1> 
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2> 
+        <h1 className={styles.title}>{title}</h1> 
+        <h2 className={styles.subtitle}>{subtitle}</h2> 
+        {/*
         <div>
           <Hamburger content={this.state.hamburgerContent} onClick={this.handleHamburgerClick}>
             {this.state.hamburgerContent}
           </Hamburger>
         </div>
+        */}
+        {/*
         <section className={styles[this.state.listVisibility]}>
           <div>
             {this.state.lists.map(({key, ...listProps})=>(
               <List key={key} {...listProps} />
             ))}
           </div>
-
-          {/*<List {...lists}/>*/}
+          <List {...lists}/>
           <Creator 
             text={settings.listCreatorText}
             action={title => this.addList(title)} 
           />
         </section>
+          */}
+        {lists.map(listData => (
+          <List key={listData.id} {...listData} />
+        ))}
       </main>
     );
   }
