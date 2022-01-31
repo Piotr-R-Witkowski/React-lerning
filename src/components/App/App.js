@@ -3,6 +3,7 @@ import styles from './App.scss';
 import List from '../List/ListContainer.js';
 //import Creator from '../Creator/Creator.js';
 //import Hamburger from '../Hamburger/Hamburger.js';
+import Search from '../Search/SearchContainer';
 import propTypes from 'prop-types';
 
 
@@ -52,7 +53,8 @@ class App extends React.Component {
     return ( 
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1> 
-        <h2 className={styles.subtitle}>{subtitle}</h2> 
+        <h2 className={styles.subtitle}>{subtitle}</h2>
+        <Search />
         {/*
         <div>
           <Hamburger content={this.state.hamburgerContent} onClick={this.handleHamburgerClick}>
