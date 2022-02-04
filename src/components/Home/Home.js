@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Home.scss';
-import List from '../List/ListContainer.js';
+import ListLink from '../ListLink/ListLink';
 //import Creator from '../Creator/Creator.js';
 //import Hamburger from '../Hamburger/Hamburger.js';
-import Search from '../Search/SearchContainer';
 import propTypes from 'prop-types';
 
 
@@ -54,7 +53,6 @@ class Home extends React.Component {
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1> 
         <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search />
         {/*
         <div>
           <Hamburger content={this.state.hamburgerContent} onClick={this.handleHamburgerClick}>
@@ -77,7 +75,7 @@ class Home extends React.Component {
         </section>
           */}
         {lists.map(listData => (
-          <List key={listData.id} {...listData} />
+          <ListLink key={listData.id} {...listData} />
         ))}
       </main>
     );
